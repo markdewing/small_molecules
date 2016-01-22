@@ -1,2 +1,3 @@
-# small_molecules
-Input files for quantum chemistry packages
+# Small Molecules
+
+Example input files for quantum chemistry packages
