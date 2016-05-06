@@ -37,3 +37,15 @@ A single helium atom has one electron of each spin, thus there are no nodes and 
 ### Wavefunction Forms
 #### B-Splines
 The file `he_bspline_jastrow.xml` uses a B-spline form for the electron-electron Jastrow factor.   The file is set to do a run to optimize the B-spline coefficients.
+
+#### Orbitals from GAMESS
+First, run GAMESS and save the output file (redirect the output to a file, `rungms he.inp > he.out`)
+
+Use `convert4qmc` in the QMCPACK binary directory to read that output file and convert the orbitals to a form that QMCPACK can read.  Run `convert4qmc -gamessAscii he.out`.   This will produce two output files, `sample.Gaussian-G2.ptcl.xml`, which sets up the ionic and electronic coordinates.  For now this can be ignored.  The second output file, `sample.Gaussian-G2.xml` contains the wavefunction.  In addition to the orbitals, this wavefunction contains some default Jastrow factors.
+
+The file `he_from_gamess.xml` contains the `<wavefunction>` portion of the orbitals (from `sample.Gaussian-G2.xml`) put into the original He input file.  Also, since the He atom has only 2 electrons, the same spin e-e Jastrow was removed.
+
+Using the wavefunction with no Jastrow factor in QMC should reproduce the Hartree-Fock energy from GAMESS.  (Note that the Jastrow factor pieces need to be commented out.  Because of default cusp conditions, simply setting all the coefficients to zero is not quite the same.)
+The HF energy ('TOTAL ENERGY' in he.out) is -2.86162.  From QMCPACK, I get -2.8642 +/- 0.0015.  The error bars given are one-sigma, so this is still probably okay.  Do more runs, and run longer to check (increase `<nblocks>` in the VMC section).
+
+The `he_from_gamess.xml` input file does a VMC run by default.  The optimization input code is commented out.  Uncomment it and run to optimize the parameters.  The number of samples (`<parameter name="samples">`) may need to be increased for better optimization convergence.
