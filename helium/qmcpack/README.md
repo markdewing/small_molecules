@@ -33,3 +33,7 @@ The `qmca` script can plot the average energy for each run.  Use `qmca --plot --
 The `he_simple_dmc.xml` input file performs a Diffusion Monte Carlo (DMC) run.  It starts with VMC to warm up the walkers, and then does DMC.  There will be two series of output files - 000 for the VMC and 001 for the DMC.
 
 A single helium atom has one electron of each spin, thus there are no nodes and DMC should give the exact (non-relativistic) ground state energy.   Also in this case, the quality of the wavefunction should not affect the final answer, but can affect the variance.  This input file uses the unoptimized Jastrow parameter.  As an exercise, use the optimized Jastrow parameter instead, and see how the variance of the energy changes.
+
+### Wavefunction Forms
+#### B-Splines
+The file `he_bspline_jastrow.xml` uses a B-spline form for the electron-electron Jastrow factor.   The file is set to do a run to optimize the B-spline coefficients.
