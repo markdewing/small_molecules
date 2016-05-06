@@ -32,6 +32,9 @@
    <!-- For two electron system, only have up-down interaction -->
 
     <jastrow name="Jee" type="Two-Body" function="Bspline">
+      <!-- 'rcut' is the cutoff (in atomic units) beyond which the jastrow factor is zero -->
+      <!-- 'size' is the number of knots in the spline inside the interval [0, rcut].  
+           This should match the number of coefficients in the array -->
       <correlation rcut="10" size="4" speciesA="u" speciesB="d">
         <coefficients id="jud" type="Array">0.0 0.0 0.0 0.0</coefficients>
       </correlation>
