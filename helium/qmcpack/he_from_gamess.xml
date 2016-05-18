@@ -26,7 +26,7 @@
 
   <!-- Trial wavefunction - use Slater determinant multiplied by a Jastrow factor -->
 
-      <!-- Use a single Slater Type Orbital (STO) for the basis. Cusp condition is correct. -->
+      <!-- Use GTO (Gaussian Type Orbitals) taken from a Gamess run for the basis. Cusp condition is not correct. -->
    <!-- Electron-electron Jastrow of Pade form -->
    <!-- For two electron system, only have up-down interaction -->
 
@@ -2039,7 +2039,7 @@
          above, the orbitals need to be adjusted to compensate.  This is done
          with a one-body, or electron-ion, Jastrow -->
     <jastrow name="J1" type="One-Body" function="Bspline" source="ion0" print="yes">
-      <correlation rcut="10" size="10" cusp="0" elementType="He">
+      <correlation rcut="10" size="10" elementType="He">
         <coefficients id="eHe" type="Array">0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0</coefficients>
       </correlation>
     </jastrow>
