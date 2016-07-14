@@ -1,0 +1,14 @@
+
+# QWalk input for a helium atom
+
+method { VMC
+    nconfig 500 nstep 10 nblock 100
+    timestep 1.0 
+    storeconfig he.config
+    readconfig he.config
+}
+
+include he_ext.sys
+
+trialfunc { include he_ext.slater }
+

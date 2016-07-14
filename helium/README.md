@@ -5,6 +5,7 @@ Directories:
 
 * gamess/[README.md](gamess/README.md)  
 * qmcpack/[README.md](qmcpack/README.md)  
+* qwalk/[README.md](qwalk/README.md)  
 
 For reference
 
