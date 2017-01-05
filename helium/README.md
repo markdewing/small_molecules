@@ -6,6 +6,7 @@ Directories:
 * gamess/[README.md](gamess/README.md)  
 * qmcpack/[README.md](qmcpack/README.md)  
 * qwalk/[README.md](qwalk/README.md)  
+* pyscf/[README.md](pyscf/README.md)
 
 For reference
 
